@@ -17,7 +17,7 @@ intents.message_content = True  # Required to read messages
 intents.messages = True         # Required for purge/delete
 intents.guilds = True           # Good to have
 
-bot = commands.Bot(command_prefix="doom ", intents=intents)
+bot = commands.Bot(command_prefix="jarvis ", intents=intents)
 
 @bot.event
 async def on_ready():
@@ -29,7 +29,7 @@ async def on_ready():
 async def delete(ctx):
     try:
         deleted = await ctx.channel.purge(limit=100)  # Try with 50 to avoid old message limit
-        await ctx.send(f"✅ Deleted {len(deleted)} messages!", delete_after=5)
+        await ctx.send(f"Yes sir, ✅ Deleted {len(deleted)} messages!", delete_after=5)
     except discord.Forbidden:
         await ctx.send("❌ I don't have permission to delete messages.")
     except Exception as e:
