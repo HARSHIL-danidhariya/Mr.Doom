@@ -28,7 +28,7 @@ async def on_ready():
 @commands.has_permissions(manage_messages=True)
 async def delete(ctx):
     try:
-        deleted = await ctx.channel.purge(limit=50)  # Try with 50 to avoid old message limit
+        deleted = await ctx.channel.purge(limit=100)  # Try with 50 to avoid old message limit
         await ctx.send(f"✅ Deleted {len(deleted)} messages!", delete_after=5)
     except discord.Forbidden:
         await ctx.send("❌ I don't have permission to delete messages.")
